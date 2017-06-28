@@ -1,6 +1,6 @@
 package dev.jpp.listapi.entity;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,13 +31,13 @@ public class User {
 	private String password;
 	
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="user")
-	private List<UserRole> roles;
+	private Set<UserRole> roles;
 	
 	public User() {
 		super();
 	}
 	
-	public User(int id, String name, String phone, String email, String password, List<UserRole> roles) {
+	public User(int id, String name, String phone, String email, String password, Set<UserRole> roles) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -87,11 +87,11 @@ public class User {
 		this.password = password;
 	}
 
-	public List<UserRole> getRoles() {
+	public Set<UserRole> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<UserRole> roles) {
+	public void setRoles(Set<UserRole> roles) {
 		this.roles = roles;
 	}
 

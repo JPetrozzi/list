@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="lst_event_list")
+@Table(name="lst_eventlist")
 public class EventList {
 	@Id
 	@GeneratedValue
@@ -28,7 +28,7 @@ public class EventList {
 	@JoinColumn(name="listType_id", nullable=false)
 	private ListType listType;
 	
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="event")
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="eventList")
 	private List<GuestList> guestLists;
 
 	public EventList() {

@@ -1,7 +1,9 @@
 package dev.jpp.listapi.converter;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -41,6 +43,26 @@ public class UserRoleConverter implements IConverter<UserRole, UserRoleModel> {
 	@Override
 	public List<UserRoleModel> listEntityToListModel(List<UserRole> entities) {
 		List<UserRoleModel> models = new ArrayList<>();
+		
+		for (UserRole entity : entities) {
+			models.add(this.entityToModel(entity));
+		}
+		
+		return models;
+	}
+	
+	public Set<UserRole> setModelToSetEntity(Set<UserRoleModel> models) {
+		Set<UserRole> entities = new HashSet<>();
+		
+		for (UserRoleModel model : models) {
+			entities.add(this.modelToEntity(model));
+		}
+		
+		return entities;
+	}
+	
+	public Set<UserRoleModel> setEntityToSetModel(Set<UserRole> entities) {
+		Set<UserRoleModel> models = new HashSet<>();
 		
 		for (UserRole entity : entities) {
 			models.add(this.entityToModel(entity));

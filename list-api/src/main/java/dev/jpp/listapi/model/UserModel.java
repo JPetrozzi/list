@@ -1,6 +1,6 @@
 package dev.jpp.listapi.model;
 
-import java.util.List;
+import java.util.Set;
 
 public class UserModel {
 	private int id;
@@ -8,13 +8,13 @@ public class UserModel {
 	private String phone;
 	private String email;
 	private String password;
-	private List<UserRoleModel> roles;
+	private Set<UserRoleModel> roles;
 	
 	public UserModel() {
 		super();
 	}
 	
-	public UserModel(int id, String name, String phone, String email, String password, List<UserRoleModel> roles) {
+	public UserModel(int id, String name, String phone, String email, String password, Set<UserRoleModel> roles) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -54,10 +54,10 @@ public class UserModel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public List<UserRoleModel> getRoles() {
+	public Set<UserRoleModel> getRoles() {
 		return roles;
 	}
-	public void setRoles(List<UserRoleModel> roles) {
+	public void setRoles(Set<UserRoleModel> roles) {
 		this.roles = roles;
 	}
 
