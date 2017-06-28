@@ -4,7 +4,7 @@ public class GuestListModel {
 	private int id;
 	private String represent;
 	private UserModel creator;
-	private EventModel event;
+	private EventListModel eventList;
 	private int numberOfGuests;
 	private String guestsNames;
 	private int presents;
@@ -13,12 +13,12 @@ public class GuestListModel {
 		super();
 	}
 	
-	public GuestListModel(int id, String represent, UserModel creator, EventModel event, int numberOfGuests, String guestsNames, int presents) {
+	public GuestListModel(int id, String represent, UserModel creator, EventListModel eventList, int numberOfGuests, String guestsNames, int presents) {
 		super();
 		this.id = id;
 		this.represent = represent;
 		this.creator = creator;
-		this.event = event;
+		this.eventList = eventList;
 		this.numberOfGuests = numberOfGuests;
 		this.guestsNames = guestsNames;
 		this.presents = presents;
@@ -48,12 +48,12 @@ public class GuestListModel {
 		this.creator = creator;
 	}
 
-	public EventModel getEvent() {
-		return event;
+	public EventListModel getEventList() {
+		return eventList;
 	}
 
-	public void setEvent(EventModel event) {
-		this.event = event;
+	public void setEventList(EventListModel eventList) {
+		this.eventList = eventList;
 	}
 
 	public int getNumberOfGuests() {
@@ -82,7 +82,7 @@ public class GuestListModel {
 
 	@Override
 	public String toString() {
-		return "GuestListModel [id=" + id + ", represent=" + represent + ", creator=" + creator + ", event=" + event
+		return "GuestListModel [id=" + id + ", represent=" + represent + ", creator=" + creator + ", event=" + eventList
 				+ ", numberOfGuests=" + numberOfGuests + ", guestsNames=" + guestsNames + ", presents=" + presents
 				+ "]";
 	}

@@ -9,13 +9,13 @@ public class EventModel {
 	private String description;
 	private Date date;
 	private UserModel creator;
-	private List<GuestListModel> lists;
+	private List<EventListModel> lists;
 	
 	public EventModel() {
 		super();
 	}
 
-	public EventModel(int id, String name, String description, Date date, UserModel creator, List<GuestListModel> lists) {
+	public EventModel(int id, String name, String description, Date date, UserModel creator, List<EventListModel> lists) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -65,11 +65,11 @@ public class EventModel {
 		this.creator = creator;
 	}
 
-	public List<GuestListModel> getLists() {
+	public List<EventListModel> getLists() {
 		return lists;
 	}
 
-	public void setLists(List<GuestListModel> lists) {
+	public void setLists(List<EventListModel> lists) {
 		this.lists = lists;
 	}
 

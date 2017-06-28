@@ -25,8 +25,8 @@ public class GuestList {
 	private User creator;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="event_id", nullable=false)
-	private Event event;
+	@JoinColumn(name="eventList_id", nullable=false)
+	private EventList eventList;
 	
 	@Column(name="numberOfGuests")
 	private int numberOfGuests;
@@ -41,12 +41,12 @@ public class GuestList {
 		super();
 	}
 
-	public GuestList(int id, String represent, User creator, Event event, int numberOfGuests, String guestsNames, int presents) {
+	public GuestList(int id, String represent, User creator, EventList eventList, int numberOfGuests, String guestsNames, int presents) {
 		super();
 		this.id = id;
 		this.represent = represent;
 		this.creator = creator;
-		this.event = event;
+		this.eventList = eventList;
 		this.numberOfGuests = numberOfGuests;
 		this.guestsNames = guestsNames;
 		this.presents = presents;
@@ -76,12 +76,12 @@ public class GuestList {
 		this.creator = creator;
 	}
 
-	public Event getEvent() {
-		return event;
+	public EventList getEventList() {
+		return eventList;
 	}
 
-	public void setEvent(Event event) {
-		this.event = event;
+	public void setEventList(EventList eventList) {
+		this.eventList = eventList;
 	}
 
 	public int getNumberOfGuests() {
@@ -110,7 +110,7 @@ public class GuestList {
 
 	@Override
 	public String toString() {
-		return "GuestList [id=" + id + ", represent=" + represent + ", creator=" + creator + ", event=" + event
+		return "GuestList [id=" + id + ", represent=" + represent + ", creator=" + creator + ", event=" + eventList
 				+ ", cantGuests=" + numberOfGuests + ", guestsNames=" + guestsNames + ", presents=" + presents + "]";
 	}
 }

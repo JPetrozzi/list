@@ -35,13 +35,13 @@ public class Event {
 	private User creator;
 	
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="event")
-	private List<GuestList> lists;
+	private List<EventList> lists;
 	
 	public Event() {
 		super();
 	}
 
-	public Event(int id, String name, String description, Date date, User creator, List<GuestList> lists) {
+	public Event(int id, String name, String description, Date date, User creator, List<EventList> lists) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -91,11 +91,11 @@ public class Event {
 		this.creator = creator;
 	}
 
-	public List<GuestList> getLists() {
+	public List<EventList> getLists() {
 		return lists;
 	}
 
-	public void setLists(List<GuestList> lists) {
+	public void setLists(List<EventList> lists) {
 		this.lists = lists;
 	}
 

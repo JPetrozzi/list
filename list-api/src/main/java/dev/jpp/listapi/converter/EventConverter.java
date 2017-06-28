@@ -12,18 +12,18 @@ import dev.jpp.listapi.model.EventModel;
 
 @Component("eventConverter")
 public class EventConverter implements IConverter<Event, EventModel>{
-
-	@Autowired
-	@Qualifier("guestListConverter")
-	private GuestListConverter glConv;
 	
 	@Autowired
 	@Qualifier("userConverter")
 	private UserConverter userConv;
 	
+	@Autowired
+	@Qualifier("eventListConverter")
+	private EventListConverter elConv;
+	
 	@Override
 	public Event modelToEntity(EventModel model) {
-		return new Event(model.getId(), model.getName(), model.getDescription(), model.getDate(), userConv.modelToEntity(model.getCreator()), glConv.listModelToListEntity(model.getLists()));
+		return new Event(model.getId(), model.getName(), model.getDescription(), model.getDate(), userConv.modelToEntity(model.getCreator()), elConv.listModelToListEntity(model.getLists()));
 	}
 
 	@Override
@@ -39,12 +39,11 @@ public class EventConverter implements IConverter<Event, EventModel>{
 
 	@Override
 	public EventModel entityToModel(Event entity) {
-		return new EventModel(entity.getId(), entity.getName(), entity.getDescription(), entity.getDate(), userConv.entityToModel(entity.getCreator()), glConv.listEntityToListModel(entity.getLists()));
+		return new EventModel(entity.getId(), entity.getName(), entity.getDescription(), entity.getDate(), userConv.entityToModel(entity.getCreator()), elConv.listEntityToListModel(entity.getLists()));
 	}
 
 	@Override
-	public List<EventModel> listEntityToListModel(List<Event> entities) {
-		
+	public List<EventModel> listEntityToListModel(List<Event> entities) {		
 		List<EventModel> models = new ArrayList<>();
 		
 		for (Event entity : entities) {

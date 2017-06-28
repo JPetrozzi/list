@@ -1,30 +1,15 @@
-package dev.jpp.listapi.entity;
+package dev.jpp.listapi.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="lst_listType")
-public class ListType {
-	@Id
-	@GeneratedValue
-	@Column(name="id")
+public class ListTypeModel {
 	private int id;
-	
-	@Column(name="code")
 	private String code;
-	
-	@Column(name="description")
 	private String description;
 	
-	public ListType() {
+	public ListTypeModel() {
 		super();
 	}
 
-	public ListType(int id, String code, String description) {
+	public ListTypeModel(int id, String code, String description) {
 		super();
 		this.id = id;
 		this.code = code;
@@ -57,6 +42,6 @@ public class ListType {
 
 	@Override
 	public String toString() {
-		return "ListType [id=" + id + ", code=" + code + ", description=" + description + "]";
+		return "ListTypeModel [id=" + id + ", code=" + code + ", description=" + description + "]";
 	}
 }

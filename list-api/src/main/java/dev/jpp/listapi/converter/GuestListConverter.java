@@ -12,18 +12,18 @@ import dev.jpp.listapi.model.GuestListModel;
 
 @Component("guestListConverter")
 public class GuestListConverter implements IConverter<GuestList, GuestListModel> {
-
-	@Autowired
-	@Qualifier("eventConverter")
-	private EventConverter eventConv;
 	
 	@Autowired
 	@Qualifier("userConverter")
 	private UserConverter userConv;
 	
+	@Autowired
+	@Qualifier("eventListConverter")
+	private EventListConverter elConv;
+	
 	@Override
 	public GuestList modelToEntity(GuestListModel model) {
-		return new GuestList(model.getId(), model.getRepresent(), userConv.modelToEntity(model.getCreator()), eventConv.modelToEntity(model.getEvent()), model.getNumberOfGuests(), model.getGuestsNames(), model.getPresents());
+		return new GuestList(model.getId(), model.getRepresent(), userConv.modelToEntity(model.getCreator()), elConv.modelToEntity(model.getEventList()), model.getNumberOfGuests(), model.getGuestsNames(), model.getPresents());
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class GuestListConverter implements IConverter<GuestList, GuestListModel>
 
 	@Override
 	public GuestListModel entityToModel(GuestList entity) {
-		return new GuestListModel(entity.getId(), entity.getRepresent(), userConv.entityToModel(entity.getCreator()), eventConv.entityToModel(entity.getEvent()), entity.getNumberOfGuests(), entity.getGuestsNames(), entity.getPresents());
+		return new GuestListModel(entity.getId(), entity.getRepresent(), userConv.entityToModel(entity.getCreator()), elConv.entityToModel(entity.getEventList()), entity.getNumberOfGuests(), entity.getGuestsNames(), entity.getPresents());
 	}
 
 	@Override
