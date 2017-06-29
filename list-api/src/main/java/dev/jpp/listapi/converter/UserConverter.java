@@ -19,7 +19,7 @@ public class UserConverter implements IConverter<User, UserModel> {
 	
 	@Override
 	public User modelToEntity(UserModel model) {
-		return new User(model.getId(), model.getName(), model.getPhone(), model.getEmail(), model.getPassword(), userRoleConv.setModelToSetEntity(model.getRoles()));
+		return new User(model.getId(), model.getName(), model.getPhone(), model.getEmail(), model.getPassword(), userRoleConv.setModelToSetEntity(model.getRoles()), model.getEnabled());
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class UserConverter implements IConverter<User, UserModel> {
 
 	@Override
 	public UserModel entityToModel(User entity) {
-		return new UserModel(entity.getId(), entity.getName(), entity.getPhone(), entity.getEmail(), entity.getPassword(), userRoleConv.setEntityToSetModel(entity.getRoles()));
+		return new UserModel(entity.getId(), entity.getName(), entity.getPhone(), entity.getEmail(), entity.getPassword(), userRoleConv.setEntityToSetModel(entity.getRoles()), entity.getEnabled());
 	}
 
 	@Override

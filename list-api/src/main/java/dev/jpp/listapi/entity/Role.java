@@ -1,17 +1,17 @@
 package dev.jpp.listapi.entity;
 
 public enum Role {
-	ADMIN(1),
-	RRPP(2),
-	RECEPTIONIST(3);
+	ADMIN("admin"),
+	RRPP("rrpp"),
+	RECEPTIONIST("receptionist");
 	
-	private int id;
+	private String roleName;
 	
-	private Role(int id) {
-		this.id = id;
+	private Role(String name) {
+		this.roleName = name;
 	}
 	
-	public int getId() {
-		return this.id;
+	public String getRoleName() {
+		return this.roleName;
 	}
 }

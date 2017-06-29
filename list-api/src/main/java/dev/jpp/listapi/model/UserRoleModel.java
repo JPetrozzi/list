@@ -3,13 +3,13 @@ package dev.jpp.listapi.model;
 public class UserRoleModel {
 	private int id;
 	private UserModel user;
-	private int role;
+	private String role;
 	
 	public UserRoleModel() {
 		super();
 	}
 
-	public UserRoleModel(int id, UserModel user, int role) {
+	public UserRoleModel(int id, UserModel user, String role) {
 		super();
 		this.id = id;
 		this.user = user;
@@ -32,11 +32,11 @@ public class UserRoleModel {
 		this.user = user;
 	}
 
-	public int getRole() {
+	public String getRole() {
 		return role;
 	}
 
-	public void setRole(int role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 

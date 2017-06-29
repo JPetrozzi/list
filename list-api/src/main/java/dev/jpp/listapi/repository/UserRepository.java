@@ -9,5 +9,5 @@ import dev.jpp.listapi.entity.User;
 
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<User, Serializable> {
-	
+	public abstract User findByEmail(String email);
 }

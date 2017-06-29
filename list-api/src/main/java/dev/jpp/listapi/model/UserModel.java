@@ -9,12 +9,13 @@ public class UserModel {
 	private String email;
 	private String password;
 	private Set<UserRoleModel> roles;
+	private Boolean enabled;
 	
 	public UserModel() {
 		super();
 	}
 	
-	public UserModel(int id, String name, String phone, String email, String password, Set<UserRoleModel> roles) {
+	public UserModel(int id, String name, String phone, String email, String password, Set<UserRoleModel> roles, Boolean enabled) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -22,6 +23,7 @@ public class UserModel {
 		this.email = email;
 		this.password = password;
 		this.roles = roles;
+		this.enabled = enabled;
 	}
 	
 	public int getId() {
@@ -59,6 +61,12 @@ public class UserModel {
 	}
 	public void setRoles(Set<UserRoleModel> roles) {
 		this.roles = roles;
+	}
+	public Boolean getEnabled() {
+		return enabled;
+	}
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	@Override

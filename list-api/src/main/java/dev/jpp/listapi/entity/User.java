@@ -33,11 +33,14 @@ public class User {
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="user")
 	private Set<UserRole> roles;
 	
+	@Column(name="enabled")
+	private Boolean enabled;
+	
 	public User() {
 		super();
 	}
 	
-	public User(int id, String name, String phone, String email, String password, Set<UserRole> roles) {
+	public User(int id, String name, String phone, String email, String password, Set<UserRole> roles, Boolean enabled) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -45,6 +48,7 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.roles = roles;
+		this.enabled = enabled;
 	}
 
 	public int getId() {
@@ -94,9 +98,17 @@ public class User {
 	public void setRoles(Set<UserRole> roles) {
 		this.roles = roles;
 	}
+	
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", phone=" + phone + ", email=" + email + ", roles=" + roles + "]";
+		return "User [id=" + id + ", name=" + name + ", phone=" + phone + ", email=" + email + ", roles=" + roles + ", enabled=" + enabled + "]";
 	}
 }

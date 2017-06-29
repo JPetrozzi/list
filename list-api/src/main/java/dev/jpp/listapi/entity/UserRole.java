@@ -22,13 +22,13 @@ public class UserRole {
 	private User user;
 	
 	@Column(name="role", nullable=false)
-	private int role;
+	private String role;
 	
 	public UserRole() {
 		super();
 	}
 	
-	public UserRole(int id, User user, int role) {
+	public UserRole(int id, User user, String role) {
 		super();
 		this.id = id;
 		this.user = user;
@@ -51,11 +51,11 @@ public class UserRole {
 		this.user = user;
 	}
 
-	public int getRole() {
+	public String getRole() {
 		return role;
 	}
 
-	public void setRole(int role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 
